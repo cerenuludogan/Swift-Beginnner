@@ -19,7 +19,28 @@ class ViewController: UIViewController {
     }
 
     @IBAction func signUpButton(_ sender: Any) {
-        let alertMessage = UIAlertController(title: "Hata Mesajı", message: "Email yanlis girildi", preferredStyle: UIAlertController.Style.alert)
+        if  emailTextField.text == "" {
+            //emailini girilmedi
+            createAlert(titleGirdisi: "Hata!", messeageGirdisi: "Email Eksik")
+        }
+        else if passwordTextField.text == ""{
+            //parola girilmedi
+            createAlert(titleGirdisi: "Hata!", messeageGirdisi: "Parola Eksik")
+        }
+        else if passwordTextField.text != password2TextField.text {
+            //parolalar eşleşmedi
+            createAlert(titleGirdisi:"Hata!", messeageGirdisi: "Parola Eslesmiyor")
+        }
+        else {
+            //başarılı giriş
+            createAlert(titleGirdisi: "Tebrikler:)", messeageGirdisi: "Kullanici Olusturuldu")
+        }
+        
+    }
+       
+    
+    func createAlert(titleGirdisi:String, messeageGirdisi: String){
+        let alertMessage = UIAlertController(title: titleGirdisi, message: messeageGirdisi, preferredStyle: UIAlertController.Style.alert)
         
         let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
             (UIAlertAction) in
@@ -32,6 +53,7 @@ class ViewController: UIViewController {
         self.present(alertMessage, animated: true,completion: nil)
         
     }
+    
     
 }
 
