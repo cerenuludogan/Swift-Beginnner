@@ -68,6 +68,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return  cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Önce diziden öğeyi siliyoruz
+            Sehirler.remove(at: indexPath.row)
+            
+            // Daha sonra TableView'da ilgili satırı silmek için aşağıdaki kodu kullanabiliriz
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+        }
+    }
+    
+    
+    
     
 }
 
