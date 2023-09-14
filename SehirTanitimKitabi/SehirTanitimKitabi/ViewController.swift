@@ -22,7 +22,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         
         //Sehirler
-       let sehir1 = Sehir(İsim: "Istanbul", bolge: "Marmara", resim: UIImage(named: "istanbul")!)
+        let sehir1 = Sehir(İsim: "Istanbul", bolge: "Marmara", resim: UIImage(named: "istanbul")!)
         
         let sehir2 = Sehir(İsim: "Ankara", bolge: "Ic Anadolu", resim: UIImage(named: "ankara")!)
         
