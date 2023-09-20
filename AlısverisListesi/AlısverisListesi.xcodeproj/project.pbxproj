@@ -14,6 +14,7 @@
 		546CBB222AB3299800FC9E72 /* Al_sverisListesi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 546CBB202AB3299800FC9E72 /* Al_sverisListesi.xcdatamodeld */; };
 		546CBB242AB3299A00FC9E72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 546CBB232AB3299A00FC9E72 /* Assets.xcassets */; };
 		546CBB272AB3299A00FC9E72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 546CBB252AB3299A00FC9E72 /* LaunchScreen.storyboard */; };
+		549D19EA2AB9B79400F3C33D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549D19E92AB9B79400F3C33D /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		546CBB232AB3299A00FC9E72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		546CBB262AB3299A00FC9E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		546CBB282AB3299A00FC9E72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		549D19E92AB9B79400F3C33D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				546CBB252AB3299A00FC9E72 /* LaunchScreen.storyboard */,
 				546CBB282AB3299A00FC9E72 /* Info.plist */,
 				546CBB202AB3299800FC9E72 /* Al_sverisListesi.xcdatamodeld */,
+				549D19E92AB9B79400F3C33D /* SecondViewController.swift */,
 			);
 			path = "AlısverisListesi";
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				546CBB1C2AB3299800FC9E72 /* ViewController.swift in Sources */,
 				546CBB182AB3299800FC9E72 /* AppDelegate.swift in Sources */,
 				546CBB222AB3299800FC9E72 /* Al_sverisListesi.xcdatamodeld in Sources */,
+				549D19EA2AB9B79400F3C33D /* SecondViewController.swift in Sources */,
 				546CBB1A2AB3299800FC9E72 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
