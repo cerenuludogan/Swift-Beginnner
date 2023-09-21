@@ -28,6 +28,8 @@ class SecondViewController: UIViewController ,UIImagePickerControllerDelegate,UI
         imageView.addGestureRecognizer(imageGestureRecognize)//**
         
     }
+    
+    
     @objc func gorselSec(){
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -44,6 +46,7 @@ class SecondViewController: UIViewController ,UIImagePickerControllerDelegate,UI
 
     @objc func klavyeyiKapat(){
         view.endEditing(true)
+        
     }
    
     @IBAction func kaydet(_ sender: Any) {
@@ -71,8 +74,9 @@ class SecondViewController: UIViewController ,UIImagePickerControllerDelegate,UI
         }catch{
             print("hata var")
         }
-       
         
+        NotificationCenter.default.post(name:NSNotification.Name(rawValue: "veriGirildi") , object: nil)
+        self.navigationController?.popViewController(animated: true)
         
         
     }
