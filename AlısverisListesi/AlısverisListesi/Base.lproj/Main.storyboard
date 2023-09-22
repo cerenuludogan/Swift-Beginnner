@@ -89,6 +89,7 @@
                         <outlet property="fiyatTextField" destination="rtz-0C-mPl" id="Nbo-0I-cEf"/>
                         <outlet property="imageView" destination="dlE-Zg-RIz" id="do9-Fl-q0U"/>
                         <outlet property="isimTextField" destination="bhZ-9c-8EM" id="YCF-ja-RIT"/>
+                        <outlet property="keydetButton" destination="DBs-2E-19G" id="4I6-VH-oWe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXD-iU-tpf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -115,7 +116,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gorsel" width="1000" height="1080"/>
+        <image name="gorsel" width="584" height="316"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

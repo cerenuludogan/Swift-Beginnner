@@ -1,29 +1,31 @@
 //
 //  ViewController.swift
-//  AlısverisListesi
+//  AlisverisListesi
 //
-//  Created by Ceren Uludoğan on 14.09.2023.
+//  Created by Atil Samancioglu on 29.08.2020.
 //
 
 import UIKit
 import CoreData
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    
     var isimDizisi = [String]()
     var idDizisi = [UUID]()
     var secilenIsim = ""
-    var secilenUUID: UUID?
-    
-    
+    var secilenUUID : UUID?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         
         tableView.delegate = self
         tableView.dataSource = self
-        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(eklemeButonuTiklandi))
+        
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(eklemeButtonuTiklandi))
+        
         verileriAl()
     }
     
@@ -31,40 +33,48 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         NotificationCenter.default.addObserver(self, selector: #selector(verileriAl), name: NSNotification.Name(rawValue: "veriGirildi"), object: nil)
     }
     
-    
-   @objc func verileriAl(){
-       isimDizisi.removeAll(keepingCapacity: false)//Verileri tekrar diziye almamak için yaptık
-       idDizisi.removeAll(keepingCapacity: false)
+    @objc func verileriAl() {
+        
+        isimDizisi.removeAll(keepingCapacity: false)
+        idDizisi.removeAll(keepingCapacity: false)
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Alisveris")
-        fetchRequest.returnsObjectsAsFaults = false //Çok büyük verilerde kullanlır
+        fetchRequest.returnsObjectsAsFaults = false
         
-        do{
-             let sonuclar = try context.fetch(fetchRequest)
-            for sonuc in sonuclar  as! [NSManagedObject]{
-             if let isim = sonuc.value(forKey: "isim") as? String{
-                    isimDizisi.append(isim)
+        do {
+            let sonuclar = try context.fetch(fetchRequest)
+            if sonuclar.count > 0 {
+                for sonuc in sonuclar as! [NSManagedObject] {
+                    if let isim = sonuc.value(forKey: "isim") as? String {
+                        isimDizisi.append(isim)
+                    }
+                    
+                    if let id = sonuc.value(forKey: "id") as? UUID {
+                        idDizisi.append(id)
+                    }
                 }
                 
-                if let id = sonuc.value(forKey: "id") as? UUID{
-                    idDizisi.append(id)
-                }
-                
-               
+                tableView.reloadData()
             }
+           
             
-            tableView.reloadData()//Güncelle
-        }catch{
-            print("Hata var")
+        } catch {
+            print("hata var")
         }
-       
+        
+        
+        
         
     }
-    @objc func eklemeButonuTiklandi(){
+    
+    
+    @objc func eklemeButtonuTiklandi() {
         secilenIsim = ""
         performSegue(withIdentifier: "toSecondVC", sender: nil)
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,13 +82,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell  = UITableViewCell()
+        let cell = UITableViewCell()
         cell.textLabel?.text = isimDizisi[indexPath.row]
-        return  cell
+        return cell
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {//Verileri aktarmış olduk
-        if segue.identifier == "SecondViewController"{
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSecondVC" {
             let destinationVC = segue.destination as! SecondViewController
             destinationVC.secilenUrunIsmi = secilenIsim
             destinationVC.secilenUrunUUID = secilenUUID
@@ -90,5 +100,60 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         secilenUUID = idDizisi[indexPath.row]
         performSegue(withIdentifier: "toSecondVC", sender: nil)
     }
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Alisveris")
+            let uuidString = idDizisi[indexPath.row].uuidString
+            
+            fetchRequest.predicate = NSPredicate(format: "id = %@", uuidString)
+            fetchRequest.returnsObjectsAsFaults = false
+            
+            
+            do {
+                
+                let sonuclar = try context.fetch(fetchRequest)
+                if sonuclar.count > 0 {
+                    
+                    for sonuc in sonuclar as! [NSManagedObject] {
+                        
+                        if let id = sonuc.value(forKey: "id") as? UUID {
+                            if id == idDizisi[indexPath.row] {
+                                
+                                context.delete(sonuc)
+                                isimDizisi.remove(at: indexPath.row)
+                                idDizisi.remove(at: indexPath.row)
+                                
+                                self.tableView.reloadData()
+                                do {
+                                    try context.save()
+                                } catch {
+                                    
+                                }
+                                
+                                break
+                            }
+                        }
+                        
+                    }
+                    
+                }
+                
+            } catch {
+                print("hata")
+            }
+            
+            
+            
+            
+        }
+    }
+
+
 }
 
