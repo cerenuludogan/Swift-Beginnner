@@ -17,8 +17,26 @@ class SecondViewController: UIViewController ,UIImagePickerControllerDelegate,UI
     @IBOutlet weak var fiyatTextField: UITextField!
     @IBOutlet weak var isimTextField: UITextField!
     
+    var secilenUrunIsmi = ""
+    var secilenUrunUUID: UUID?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if secilenUrunIsmi != ""{
+            //CoreDta seçilen ürün bilgilerini gösterecek
+            
+            if let uuidString = secilenUrunUUID?.uuidString{
+                print(uuidString)
+            }
+        }else{
+        
+            isimTextField.text = ""
+            bedenTextField.text = ""
+            fiyatTextField.text = ""
+        }
+        
 
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(klavyeyiKapat))
         view.addGestureRecognizer(gestureRecognizer)
@@ -43,11 +61,13 @@ class SecondViewController: UIViewController ,UIImagePickerControllerDelegate,UI
         imageView.image = info[.originalImage] as? UIImage
         self.dismiss(animated: true,completion: nil)
     }
+    
 
     @objc func klavyeyiKapat(){
         view.endEditing(true)
         
     }
+    
    
     @IBAction func kaydet(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate// appDelegate'ı bir değişken olarak tanımlıyoruz.saveContext fonksiyonuna erişmiş oluyoruz
@@ -75,7 +95,7 @@ class SecondViewController: UIViewController ,UIImagePickerControllerDelegate,UI
             print("hata var")
         }
         
-        NotificationCenter.default.post(name:NSNotification.Name(rawValue: "veriGirildi") , object: nil)
+        NotificationCenter.default.post(name:NSNotification.Name(rawValue: "veriGirildi") , object: nil)//Bildirim göndermek için
         self.navigationController?.popViewController(animated: true)
         
         

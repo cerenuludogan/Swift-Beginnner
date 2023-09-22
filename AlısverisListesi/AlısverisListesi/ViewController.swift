@@ -13,6 +13,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var tableView: UITableView!
     var isimDizisi = [String]()
     var idDizisi = [UUID]()
+    var secilenIsim = ""
+    var secilenUUID: UUID?
     
     
     
@@ -60,10 +62,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
        
         
     }
-    
-    
-
     @objc func eklemeButonuTiklandi(){
+        secilenIsim = ""
         performSegue(withIdentifier: "toSecondVC", sender: nil)
     }
     
@@ -77,5 +77,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return  cell
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {//Verileri aktarmış olduk
+        if segue.identifier == "SecondViewController"{
+            let destinationVC = segue.destination as! SecondViewController
+            destinationVC.secilenUrunIsmi = secilenIsim
+            destinationVC.secilenUrunUUID = secilenUUID
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        secilenIsim = isimDizisi[indexPath.row]
+        secilenUUID = idDizisi[indexPath.row]
+        performSegue(withIdentifier: "toSecondVC", sender: nil)
+    }
 }
 
