@@ -8,14 +8,22 @@
 import UIKit
 import MapKit
 import CoreLocation
+import CoreData
 
 class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate{
 
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()//Konum ile ilgili olayları yönetmek için kullandık.
+    var secilenLatitude = Double()
+    var secilenLongitude = Double()
+    
+    
+    
     
     @IBOutlet weak var isimTextField: UITextField!
     @IBOutlet weak var notTextField: UITextField!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +44,10 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         if gestureRecognizer.state == .began{
             let dokunulanNokta = gestureRecognizer.location(in: mapView)
             let dokunulanKordinat = mapView.convert(dokunulanNokta, toCoordinateFrom: mapView)
+            
+            secilenLatitude = dokunulanKordinat.latitude//Seçilen kordinatları atar
+            secilenLongitude = dokunulanKordinat.longitude
+            
             
             let annotation = MKPointAnnotation()//Nokta belirleme
             annotation.coordinate = dokunulanKordinat
@@ -59,6 +71,27 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         
     }
 
-
+    @IBAction func kaydetTiklandi(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let yeniYer = NSEntityDescription.insertNewObject(forEntityName: "Yer", into: context)
+        
+        yeniYer.setValue(isimTextField.text, forKey: "isim")
+        yeniYer.setValue(notTextField.text, forKey: "not")
+        yeniYer.setValue(secilenLatitude, forKey: "latitude")
+        yeniYer.setValue(secilenLongitude, forKey: "longitude")
+        yeniYer.setValue(UUID(), forKey: "id")
+        
+        do{
+            try context.save()
+            print("Kayıt edildi")
+        }catch{
+            print("Hata!")
+        }
+        
+        
+    }
+    
 }
 

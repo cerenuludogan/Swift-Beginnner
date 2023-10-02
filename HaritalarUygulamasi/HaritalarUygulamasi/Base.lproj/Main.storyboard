@@ -18,35 +18,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oOJ-qn-Hhf">
-                                <rect key="frame" x="0.0" y="250" width="414" height="612"/>
+                                <rect key="frame" x="0.0" y="250" width="414" height="494"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="612" id="9SE-s9-sOB"/>
+                                    <constraint firstAttribute="height" constant="494" id="hv5-mi-8a8"/>
                                 </constraints>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notunuzu giriniz" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AkB-Yb-o3Y">
-                                <rect key="frame" x="20" y="164" width="374" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim giriniz" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="apo-7x-Dwg">
+                                <rect key="frame" x="20" y="100" width="350" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim giriniz" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="apo-7x-Dwg">
-                                <rect key="frame" x="20" y="100" width="374" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notunuzu giriniz" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AkB-Yb-o3Y">
+                                <rect key="frame" x="20" y="164" width="350" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ye9-gJ-fcJ">
+                                <rect key="frame" x="113" y="786" width="189" height="50"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Kaydet"/>
+                                <connections>
+                                    <action selector="kaydetTiklandi:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mQY-41-9CJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oOJ-qn-Hhf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5T5-QV-hmz"/>
-                            <constraint firstItem="apo-7x-Dwg" firstAttribute="leading" secondItem="AkB-Yb-o3Y" secondAttribute="leading" id="99b-z5-62Q"/>
-                            <constraint firstItem="oOJ-qn-Hhf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IZ9-8c-qEF"/>
-                            <constraint firstItem="AkB-Yb-o3Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="QhM-Bu-Ovq"/>
-                            <constraint firstItem="oOJ-qn-Hhf" firstAttribute="top" secondItem="AkB-Yb-o3Y" secondAttribute="bottom" constant="52" id="UFu-nO-4C5"/>
-                            <constraint firstItem="apo-7x-Dwg" firstAttribute="centerX" secondItem="oOJ-qn-Hhf" secondAttribute="centerX" id="ecS-4E-qR2"/>
-                            <constraint firstItem="apo-7x-Dwg" firstAttribute="trailing" secondItem="AkB-Yb-o3Y" secondAttribute="trailing" id="qAo-wg-gHB"/>
-                            <constraint firstItem="oOJ-qn-Hhf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="vRy-rB-FpU"/>
-                            <constraint firstItem="apo-7x-Dwg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="52" id="vXt-wk-OaR"/>
+                            <constraint firstItem="ye9-gJ-fcJ" firstAttribute="top" secondItem="oOJ-qn-Hhf" secondAttribute="bottom" constant="42" id="7bv-Ih-zYY"/>
+                            <constraint firstItem="apo-7x-Dwg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="52" id="G9B-1R-xXv"/>
+                            <constraint firstItem="oOJ-qn-Hhf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="250" id="GJg-yF-EK3"/>
+                            <constraint firstItem="ye9-gJ-fcJ" firstAttribute="centerX" secondItem="oOJ-qn-Hhf" secondAttribute="centerX" id="GO3-X0-mgL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AkB-Yb-o3Y" secondAttribute="trailing" constant="44" id="Jj4-AF-3um"/>
+                            <constraint firstItem="AkB-Yb-o3Y" firstAttribute="top" secondItem="apo-7x-Dwg" secondAttribute="bottom" constant="30" id="Jjz-rW-YpB"/>
+                            <constraint firstItem="AkB-Yb-o3Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="NnH-RQ-Ef4"/>
+                            <constraint firstItem="oOJ-qn-Hhf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="P0h-k1-lOC"/>
+                            <constraint firstItem="oOJ-qn-Hhf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pfk-h0-ERW"/>
+                            <constraint firstItem="ye9-gJ-fcJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="113" id="QxR-1t-tfg"/>
+                            <constraint firstItem="apo-7x-Dwg" firstAttribute="trailing" secondItem="AkB-Yb-o3Y" secondAttribute="trailing" id="akm-NX-wxX"/>
+                            <constraint firstItem="apo-7x-Dwg" firstAttribute="leading" secondItem="AkB-Yb-o3Y" secondAttribute="leading" id="tJ9-Rz-OOb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ye9-gJ-fcJ" secondAttribute="bottom" constant="26" id="yRH-TA-Ini"/>
                         </constraints>
                     </view>
                     <connections>
