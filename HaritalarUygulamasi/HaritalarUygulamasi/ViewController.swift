@@ -14,6 +14,9 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()//Konum ile ilgili olayları yönetmek için kullandık.
     
+    @IBOutlet weak var isimTextField: UITextField!
+    @IBOutlet weak var notTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -36,8 +39,8 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
             
             let annotation = MKPointAnnotation()//Nokta belirleme
             annotation.coordinate = dokunulanKordinat
-            annotation.title = "Kullanici secimi"
-            annotation.subtitle = "Ornek altyazi"
+            annotation.title = isimTextField.text
+            annotation.subtitle = notTextField.text
             mapView.addAnnotation(annotation)
             
         }
