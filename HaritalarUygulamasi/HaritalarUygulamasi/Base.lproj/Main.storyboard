@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8FI-hE-I0e">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -9,28 +9,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--List View Controller-->
+        <scene sceneID="7kX-Hq-cKR">
+            <objects>
+                <viewController id="NmR-yv-muD" customClass="ListViewController" customModule="HaritalarUygulamasi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EhO-Vv-4r2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Uu-v0-Er7">
+                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TcX-9f-kDU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TcX-9f-kDU" firstAttribute="bottom" secondItem="3Uu-v0-Er7" secondAttribute="bottom" id="8Ks-nF-xey"/>
+                            <constraint firstItem="3Uu-v0-Er7" firstAttribute="top" secondItem="TcX-9f-kDU" secondAttribute="top" id="VPs-ZW-WvX"/>
+                            <constraint firstItem="TcX-9f-kDU" firstAttribute="trailing" secondItem="3Uu-v0-Er7" secondAttribute="trailing" id="mfJ-ja-qA9"/>
+                            <constraint firstItem="3Uu-v0-Er7" firstAttribute="leading" secondItem="TcX-9f-kDU" secondAttribute="leading" id="usK-51-Rby"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="kA7-RT-iOp"/>
+                    <connections>
+                        <outlet property="tableView" destination="3Uu-v0-Er7" id="YCh-b3-wBY"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toMapVC" id="IjQ-Ru-LqA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pat-A3-AXx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="297.10144927536237" y="2.6785714285714284"/>
+        </scene>
+        <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HaritalarUygulamasi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="HaritalarUygulamasi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oOJ-qn-Hhf">
-                                <rect key="frame" x="0.0" y="250" width="414" height="494"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oOJ-qn-Hhf">
+                                <rect key="frame" x="0.0" y="285" width="414" height="459"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="494" id="hv5-mi-8a8"/>
                                 </constraints>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim giriniz" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="apo-7x-Dwg">
-                                <rect key="frame" x="20" y="100" width="350" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim giriniz" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="apo-7x-Dwg">
+                                <rect key="frame" x="20" y="144" width="350" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notunuzu giriniz" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AkB-Yb-o3Y">
-                                <rect key="frame" x="20" y="164" width="350" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notunuzu giriniz" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AkB-Yb-o3Y">
+                                <rect key="frame" x="20" y="208" width="350" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -61,6 +93,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ye9-gJ-fcJ" secondAttribute="bottom" constant="26" id="yRH-TA-Ini"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="vpq-K1-tzO"/>
                     <connections>
                         <outlet property="isimTextField" destination="apo-7x-Dwg" id="m4N-qU-1xx"/>
                         <outlet property="mapView" destination="oOJ-qn-Hhf" id="QVc-9V-zVv"/>
@@ -69,7 +102,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100.00000000000001" y="3.3482142857142856"/>
+            <point key="canvasLocation" x="1010.144927536232" y="3.3482142857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PBo-Pg-OhZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8FI-hE-I0e" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KhY-s1-qh0">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NmR-yv-muD" kind="relationship" relationship="rootViewController" id="Gha-pr-B4x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mXz-1g-g6z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-613.04347826086962" y="2.6785714285714284"/>
         </scene>
     </scenes>
     <resources>

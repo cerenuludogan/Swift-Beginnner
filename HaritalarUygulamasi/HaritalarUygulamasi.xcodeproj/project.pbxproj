@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54BA77F22ACC3855005D10C0 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA77F12ACC3855005D10C0 /* ListViewController.swift */; };
 		54E41FC72AC05F82008FE851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E41FC62AC05F82008FE851 /* AppDelegate.swift */; };
 		54E41FC92AC05F82008FE851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E41FC82AC05F82008FE851 /* SceneDelegate.swift */; };
-		54E41FCB2AC05F82008FE851 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E41FCA2AC05F82008FE851 /* ViewController.swift */; };
+		54E41FCB2AC05F82008FE851 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E41FCA2AC05F82008FE851 /* MapViewController.swift */; };
 		54E41FCE2AC05F82008FE851 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54E41FCC2AC05F82008FE851 /* Main.storyboard */; };
 		54E41FD12AC05F82008FE851 /* HaritalarUygulamasi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 54E41FCF2AC05F82008FE851 /* HaritalarUygulamasi.xcdatamodeld */; };
 		54E41FD32AC05F83008FE851 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54E41FD22AC05F83008FE851 /* Assets.xcassets */; };
@@ -17,10 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54BA77F12ACC3855005D10C0 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		54E41FC32AC05F82008FE851 /* HaritalarUygulamasi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaritalarUygulamasi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54E41FC62AC05F82008FE851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54E41FC82AC05F82008FE851 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		54E41FCA2AC05F82008FE851 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		54E41FCA2AC05F82008FE851 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		54E41FCD2AC05F82008FE851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		54E41FD02AC05F82008FE851 /* HaritalarUygulamasi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HaritalarUygulamasi.xcdatamodel; sourceTree = "<group>"; };
 		54E41FD22AC05F83008FE851 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,12 +62,13 @@
 			children = (
 				54E41FC62AC05F82008FE851 /* AppDelegate.swift */,
 				54E41FC82AC05F82008FE851 /* SceneDelegate.swift */,
-				54E41FCA2AC05F82008FE851 /* ViewController.swift */,
+				54E41FCA2AC05F82008FE851 /* MapViewController.swift */,
 				54E41FCC2AC05F82008FE851 /* Main.storyboard */,
 				54E41FD22AC05F83008FE851 /* Assets.xcassets */,
 				54E41FD42AC05F83008FE851 /* LaunchScreen.storyboard */,
 				54E41FD72AC05F83008FE851 /* Info.plist */,
 				54E41FCF2AC05F82008FE851 /* HaritalarUygulamasi.xcdatamodeld */,
+				54BA77F12ACC3855005D10C0 /* ListViewController.swift */,
 			);
 			path = HaritalarUygulamasi;
 			sourceTree = "<group>";
@@ -141,9 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54E41FCB2AC05F82008FE851 /* ViewController.swift in Sources */,
+				54E41FCB2AC05F82008FE851 /* MapViewController.swift in Sources */,
 				54E41FC72AC05F82008FE851 /* AppDelegate.swift in Sources */,
 				54E41FD12AC05F82008FE851 /* HaritalarUygulamasi.xcdatamodeld in Sources */,
+				54BA77F22ACC3855005D10C0 /* ListViewController.swift in Sources */,
 				54E41FC92AC05F82008FE851 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
