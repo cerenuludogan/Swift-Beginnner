@@ -14,6 +14,9 @@
 		54BA78092ACC88B8005D10C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54BA78082ACC88B8005D10C0 /* Assets.xcassets */; };
 		54BA780C2ACC88B8005D10C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54BA780A2ACC88B8005D10C0 /* LaunchScreen.storyboard */; };
 		54BA78142ACCA19D005D10C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54BA78132ACCA19D005D10C0 /* GoogleService-Info.plist */; };
+		54D0F2802AD3DEDA0061E128 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D0F27F2AD3DEDA0061E128 /* FeedViewController.swift */; };
+		54D0F2822AD3DEF60061E128 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D0F2812AD3DEF60061E128 /* UploadViewController.swift */; };
+		54D0F2842AD3DF0A0061E128 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D0F2832AD3DF0A0061E128 /* SettingsViewController.swift */; };
 		ACCCD325BC63BB56E9241769 /* Pods_FotografPaylasmaUygulamasi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84BC00F84C92EB2A312FFF /* Pods_FotografPaylasmaUygulamasi.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +31,9 @@
 		54BA780B2ACC88B8005D10C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54BA780D2ACC88B8005D10C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54BA78132ACCA19D005D10C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		54D0F27F2AD3DEDA0061E128 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		54D0F2812AD3DEF60061E128 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		54D0F2832AD3DF0A0061E128 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9786821F0BDDF68361BDE339 /* Pods-FotografPaylasmaUygulamasi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotografPaylasmaUygulamasi.debug.xcconfig"; path = "Target Support Files/Pods-FotografPaylasmaUygulamasi/Pods-FotografPaylasmaUygulamasi.debug.xcconfig"; sourceTree = "<group>"; };
 		CE84BC00F84C92EB2A312FFF /* Pods_FotografPaylasmaUygulamasi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FotografPaylasmaUygulamasi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -58,7 +64,6 @@
 				9786821F0BDDF68361BDE339 /* Pods-FotografPaylasmaUygulamasi.debug.xcconfig */,
 				19C48FB576E523C6CDD37840 /* Pods-FotografPaylasmaUygulamasi.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -91,6 +96,9 @@
 				54BA780A2ACC88B8005D10C0 /* LaunchScreen.storyboard */,
 				54BA780D2ACC88B8005D10C0 /* Info.plist */,
 				54BA78132ACCA19D005D10C0 /* GoogleService-Info.plist */,
+				54D0F27F2AD3DEDA0061E128 /* FeedViewController.swift */,
+				54D0F2812AD3DEF60061E128 /* UploadViewController.swift */,
+				54D0F2832AD3DF0A0061E128 /* SettingsViewController.swift */,
 			);
 			path = FotografPaylasmaUygulamasi;
 			sourceTree = "<group>";
@@ -212,8 +220,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				54BA78042ACC88B7005D10C0 /* ViewController.swift in Sources */,
+				54D0F2822AD3DEF60061E128 /* UploadViewController.swift in Sources */,
 				54BA78002ACC88B7005D10C0 /* AppDelegate.swift in Sources */,
+				54D0F2802AD3DEDA0061E128 /* FeedViewController.swift in Sources */,
 				54BA78022ACC88B7005D10C0 /* SceneDelegate.swift in Sources */,
+				54D0F2842AD3DF0A0061E128 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
