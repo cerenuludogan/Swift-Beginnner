@@ -7,6 +7,8 @@
 
 import UIKit
 import FirebaseStorage
+import FirebaseFirestore
+import FirebaseAuth
 
 class UploadViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -47,27 +49,37 @@ class UploadViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     @IBAction func uploadButton(_ sender: Any) {
         let storage = Storage.storage()
-        let storageRefrance = storage.reference()
-        
-        let mediaFolder = storageRefrance.child("media")
-        if let data = imageView.image?.jpegData(compressionQuality: 0.5){//Data çevirme
-            let uuid = UUID().uuid
-            let imageRefrance = mediaFolder.child("\(uuid).jpeg")
-            
-            imageRefrance.putData(data,metadata: nil) { (storagemetadata,error) in
-                if error != nil {
-                    self.hataMesajiGoster(title: "Hata!", message: error?.localizedDescription ?? "Hata Aldınız ,Tekrar Deneyiniz")
-                }else{
-                    imageRefrance.downloadURL { url, error in
-                        if error == nil {
-                            let imageURL = url?.absoluteString
-                            print(imageURL!)
+                let storageRefrance = storage.reference()
+                let mediaFolder = storageRefrance.child("media")
+                
+                if let data = imageView.image?.jpegData(compressionQuality: 0.5) {
+                    let uuid = UUID().uuidString
+                    let imageRefrance = mediaFolder.child("\(uuid).jpeg")
+
+                    imageRefrance.putData(data, metadata: nil) { (storagemetadata, error) in
+                        if error != nil {
+                            self.hataMesajiGoster(title: "Hata!", message: error?.localizedDescription ?? "Hata Aldınız, Tekrar Deneyiniz")
+                        } else {
+                            imageRefrance.downloadURL { url, error in
+                                if error == nil {
+                                    let imageURL = url?.absoluteString
+                                    if let imageURL = imageURL {
+                                        let firestorePost = ["gorselurl": imageURL, "yorum": self.textField.text!, "email": Auth.auth().currentUser!.email as Any, "tarih": FieldValue.serverTimestamp()] as [String: Any]
+
+                                        let firestoreDatabase = Firestore.firestore()
+                                        firestoreDatabase.collection("Post").addDocument(data: firestorePost) { error in
+                                            if error != nil {
+                                                self.hataMesajiGoster(title: "Hata", message: error?.localizedDescription ?? "Hata Aldınız, Tekrar Deneyiniz")
+                                            } else {
+                                                // Başarıyla eklendi.
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
-            }
-            
-        }
     }
     
     func hataMesajiGoster(title: String,message:String){
